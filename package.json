@@ -16,5 +16,14 @@
   "bugs": {
     "url": "https://github.com/AleksandroSN/NodeCLI/issues"
   },
+  "devDependencies": {
+    "eslint": "^8.2.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-prettier": "^3.4.0",
+    "nodemon": "^2.0.15",
+    "prettier": "^2.3.1"
+  },
   "homepage": "https://github.com/AleksandroSN/NodeCLI#readme"
 }

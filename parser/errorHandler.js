@@ -1,20 +1,19 @@
 const { exit, stderr } = require("process");
-const { cliArgs } = require("../shared");
 
 const errorHandler = (args) => {
-  let countDupes = 0;
+  const countDupes = {};
   args.forEach((arg) => {
-    cliArgs.forEach((cliArg) => {
-      if (arg === cliArg) {
-        countDupes += 1;
-      }
-    });
+    if (countDupes[arg]) {
+      countDupes[arg] += 1;
+    } else countDupes[arg] = 1;
   });
-  if (countDupes > 1) {
-    stderr.write("arguments is duplicate");
-    exit(55); // replace
-  }
-  return false;
+
+  Object.values(countDupes).forEach((count) => {
+    if (count > 1) {
+      stderr.write("arguments is duplicate");
+      exit(55); // replace
+    }
+  });
 };
 
 module.exports = {

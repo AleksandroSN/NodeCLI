@@ -1,5 +1,6 @@
 const { argv } = require("process");
 const { errorHandler } = require("./errorHandler");
+const { validateArgs } = require("./validateArgs");
 
 const shortArg = (arg, args) => {
   if (arg.startsWith("-")) {
@@ -15,6 +16,7 @@ const shortArg = (arg, args) => {
 const argsParser = () => {
   const args = argv.slice(2);
   errorHandler(args);
+  validateArgs(args);
   const formatArgs = args.reduce(
     (accArgs, arg) => ({
       ...accArgs,

@@ -1,4 +1,4 @@
-const { cli } = require("./argsParser");
+const { cli } = require("./cli");
 
 module.exports = {
   cli,

@@ -1,7 +1,23 @@
-const constants = require("./constants");
+const {
+  cliArgs,
+  rot8Shift,
+  ceaserShift,
+  charCodeLowerCaseEnd,
+  charCodeLowerCaseStart,
+  charCodeUpperCaseEnd,
+  charCodeUpperCaseStart,
+  engAlphabetLength,
+} = require("./constants");
 const { checkCase } = require("./checkCase");
 
 module.exports = {
-  constants,
+  cliArgs,
+  rot8Shift,
+  ceaserShift,
+  charCodeLowerCaseEnd,
+  charCodeLowerCaseStart,
+  charCodeUpperCaseEnd,
+  charCodeUpperCaseStart,
+  engAlphabetLength,
   checkCase,
 };

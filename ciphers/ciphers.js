@@ -1,5 +1,3 @@
-const { constants, checkCase } = require("../shared");
-
 const {
   charCodeLowerCaseStart,
   charCodeLowerCaseEnd,
@@ -8,7 +6,8 @@ const {
   ceaserShift,
   rot8Shift,
   engAlphabetLength,
-} = constants;
+  checkCase,
+} = require("../shared");
 
 class Ciphers {
   constructor(str) {

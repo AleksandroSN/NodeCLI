@@ -1,32 +1,30 @@
-const cli = () => {
-  const args = process.argv.slice(2);
-  args.forEach((arg) => {
-    switch (arg) {
-      case "-c":
-        console.log("HA");
-        return "HA";
-      case "--config":
-        console.log("HA");
-        return "HA";
-      case "-i":
-        console.log("HA!");
-        return "HA";
-      case "--input":
-        console.log("HA!");
-        return "HA";
-      case "-o":
-        console.log("HA!");
-        return "HA";
-      case "--output":
-        console.log("HA!");
-        return "HA";
-      default:
-        return "Config is requried";
-    }
-  });
-  return "parser worked";
+const { argv } = require("process");
+const { errorHandler } = require("./errorHandler");
+
+const shortArg = (arg, args) => {
+  if (arg.startsWith("-")) {
+    const replaceArg = arg[1] === "-" ? "--" : "-";
+    const key = arg.replace(replaceArg, "");
+    const idx = args.findIndex((x) => x === arg);
+    const nextValue = args[idx + 1];
+    return { [key]: nextValue };
+  }
+  return {};
+};
+
+const argsParser = () => {
+  const args = argv.slice(2);
+  errorHandler(args);
+  const formatArgs = args.reduce(
+    (accArgs, arg) => ({
+      ...accArgs,
+      ...shortArg(arg, argv),
+    }),
+    {}
+  );
+  return formatArgs;
 };
 
 module.exports = {
-  cli,
+  argsParser,
 };

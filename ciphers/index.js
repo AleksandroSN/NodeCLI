@@ -1,9 +1,5 @@
-const { caesarCipher } = require("./caesarCipher");
-const { atbashCipher } = require("./atbashCipher");
-const { rot8Cipher } = require("./rot8Cipher");
+const { Ciphers } = require("./ciphers");
 
 module.exports = {
-  caesarCipher,
-  atbashCipher,
-  rot8Cipher,
+  Ciphers,
 };

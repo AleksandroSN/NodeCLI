@@ -1,12 +1,8 @@
-const { Ciphers } = require("./ciphers");
+const { pipeline } = require("stream");
+const { readStream, writeStream, transformStream } = require("./streams");
 
-const cli = () => {
-  const test = new Ciphers("ABC");
-  const args = process.argv.slice(2);
-  if (args[0] === "-c" || args[0] === "--config") {
-    return console.log(test.atbashCipher("ABC"));
-  }
-  return console.log("Config is requried");
+const init = () => {
+  pipeline(readStream(), transformStream(), writeStream(), (err) => err);
 };
 
-cli();
+init();

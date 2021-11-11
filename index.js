@@ -1,8 +1,8 @@
 const { pipeline } = require("stream");
-const { readStream, writeStream, transformStream } = require("./streams");
+const { readStream, writeStream, transformStreams } = require("./streams");
 
 const init = () => {
-  pipeline(readStream(), transformStream(), writeStream(), (err) => err);
+  pipeline(readStream(), ...transformStreams(), writeStream(), (err) => err);
 };
 
 init();

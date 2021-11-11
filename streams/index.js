@@ -1,9 +1,9 @@
 const { readStream } = require("./readStream");
 const { writeStream } = require("./writeStream");
-const { transformStream } = require("./transformStream");
+const { transformStreams } = require("./transformStream");
 
 module.exports = {
   readStream,
   writeStream,
-  transformStream,
+  transformStreams,
 };

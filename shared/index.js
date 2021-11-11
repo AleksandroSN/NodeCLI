@@ -1,5 +1,6 @@
 const {
   cliArgs,
+  cliArgsFormatted,
   rot8Shift,
   ceaserShift,
   charCodeLowerCaseEnd,
@@ -12,6 +13,7 @@ const { checkCase } = require("./checkCase");
 
 module.exports = {
   cliArgs,
+  cliArgsFormatted,
   rot8Shift,
   ceaserShift,
   charCodeLowerCaseEnd,

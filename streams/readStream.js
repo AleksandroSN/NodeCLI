@@ -1,14 +1,21 @@
 const { createReadStream } = require("fs");
+const { stdin } = require("process");
 const { cli } = require("../parser");
+const { cliArgsFormatted } = require("../shared");
 
 const readStream = () => {
   const config = cli();
-  console.log(config);
-  const file = createReadStream("./input.txt");
+  const path = config[cliArgsFormatted.i]
+    ? config[cliArgsFormatted.i]
+    : config[cliArgsFormatted.input];
 
-  file.setEncoding("utf8");
-  file.on("data", (chunk) => console.log(chunk));
-  return file;
+  if (path) {
+    const file = createReadStream(path, { encoding: "utf-8" });
+    // file.on("data", (chunk) => console.log(chunk));
+    return file;
+  }
+
+  return stdin;
 };
 
 module.exports = {

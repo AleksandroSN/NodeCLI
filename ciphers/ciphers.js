@@ -16,7 +16,7 @@ class Ciphers {
 
   encodeCipher(type) {
     const shift = type === "C" ? ceaserShift : rot8Shift;
-    const codeStr = this.str.replace(/[a-z]/g, (letter) => {
+    const codeStr = this.str.replace(/[a-zA-Z]/g, (letter) => {
       if (checkCase(letter)) {
         return String.fromCharCode(
           ((letter.charCodeAt(0) - charCodeUpperCaseStart + shift) %
@@ -36,7 +36,7 @@ class Ciphers {
 
   decodeCipher(type) {
     const shift = type === "C" ? ceaserShift : rot8Shift;
-    const codeStr = this.str.replace(/[a-z]/g, (letter) => {
+    const codeStr = this.str.replace(/[a-zA-Z]/g, (letter) => {
       if (checkCase(letter)) {
         return String.fromCharCode(
           ((letter.charCodeAt(0) - charCodeUpperCaseEnd - shift) %
@@ -45,9 +45,9 @@ class Ciphers {
         );
       }
       return String.fromCharCode(
-        ((letter.charCodeAt(0) - charCodeUpperCaseEnd - shift) %
+        ((letter.charCodeAt(0) - charCodeLowerCaseEnd - shift) %
           engAlphabetLength) +
-          charCodeUpperCaseEnd
+          charCodeLowerCaseEnd
       );
     });
     this.str = codeStr;

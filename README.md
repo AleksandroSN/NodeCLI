@@ -4,6 +4,7 @@
 1. Have NodeJS version 14+
 2. git checkout dev
 3. npm i
+4. use only txt files
 ## Available commands 
 
 ```bash

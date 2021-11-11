@@ -10,6 +10,8 @@ const {
   engAlphabetLength,
 } = require("./constants");
 const { checkCase } = require("./checkCase");
+const { checkFileExt } = require("./checkFileExt");
+const { getConfig } = require("./getConfig");
 
 module.exports = {
   cliArgs,
@@ -22,4 +24,6 @@ module.exports = {
   charCodeUpperCaseStart,
   engAlphabetLength,
   checkCase,
+  checkFileExt,
+  getConfig,
 };

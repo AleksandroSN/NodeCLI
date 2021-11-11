@@ -1,18 +1,16 @@
 const { createReadStream } = require("fs");
-const { stdin } = require("process");
-const { cli } = require("../parser");
-const { cliArgsFormatted } = require("../shared");
+const { stdin, stderr, exit } = require("process");
+const { cliArgsFormatted, checkFileExt, getConfig } = require("../shared");
 
 const readStream = () => {
-  const config = cli();
-  const path = config[cliArgsFormatted.i]
-    ? config[cliArgsFormatted.i]
-    : config[cliArgsFormatted.input];
-
+  const path = getConfig(cliArgsFormatted.i, cliArgsFormatted.input);
   if (path) {
-    const file = createReadStream(path, { encoding: "utf-8" });
-    // file.on("data", (chunk) => console.log(chunk));
-    return file;
+    const ext = checkFileExt(path);
+    if (ext !== "txt") {
+      stderr.write("wrong file ext or file is unaccesible");
+      exit(55);
+    }
+    return createReadStream(path, { encoding: "utf-8" });
   }
 
   return stdin;

@@ -1,4 +1,4 @@
-const { exitHandler } = require("../shared");
+const { CustomError } = require("../shared");
 const { validateConfig } = require("./validateConfig");
 
 const validateArgs = (args) => {
@@ -6,7 +6,7 @@ const validateArgs = (args) => {
     (arg) => arg === "-c" || arg === "--config"
   );
   if (configArgIdx === -1) {
-    exitHandler("No ConFig !!!\n", 10);
+    throw new CustomError("No ConFig !!!\n", 10);
   }
   const config = args[configArgIdx + 1];
   const formatedConfig = config.split("-");

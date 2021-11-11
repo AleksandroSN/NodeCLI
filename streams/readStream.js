@@ -1,6 +1,6 @@
 const { createReadStream } = require("fs");
-const { stdin, stderr } = require("process");
-const { cliArgsFormatted, checkFileExt } = require("../shared");
+const { stdin } = require("process");
+const { cliArgsFormatted, CustomError, checkFileExt } = require("../shared");
 const { getConfig } = require("../parser");
 
 const readStream = () => {
@@ -8,8 +8,7 @@ const readStream = () => {
   if (path) {
     const ext = checkFileExt(path);
     if (ext !== "txt") {
-      stderr.write("wrong file ext or file is unaccesible\n");
-      process.exitCode = 10;
+      throw new CustomError("wrong file ext or file is unaccesible\n", 10);
     }
     return createReadStream(path, { encoding: "utf-8" });
   }

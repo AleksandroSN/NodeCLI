@@ -12,6 +12,7 @@ const {
 const { checkCase } = require("./checkCase");
 const { checkFileExt } = require("./checkFileExt");
 const { exitHandler } = require("./exitHandler");
+const { CustomError, errorHandler } = require("./errorHandler");
 
 module.exports = {
   cliArgs,
@@ -26,4 +27,6 @@ module.exports = {
   checkCase,
   checkFileExt,
   exitHandler,
+  CustomError,
+  errorHandler,
 };

@@ -1,4 +1,4 @@
-const { exitHandler } = require("../shared");
+const { CustomError } = require("../shared");
 
 const errorHandlerArgs = (args) => {
   const countDupes = {};
@@ -10,7 +10,7 @@ const errorHandlerArgs = (args) => {
 
   Object.values(countDupes).forEach((count) => {
     if (count > 1) {
-      exitHandler("arguments is duplicate\n", 22);
+      throw new CustomError("arguments is duplicate\n", 22);
     }
   });
 };

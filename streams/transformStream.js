@@ -1,4 +1,5 @@
-const { cliArgsFormatted, getConfig } = require("../shared");
+const { getConfig } = require("../parser");
+const { cliArgsFormatted } = require("../shared");
 const { streamLibs } = require("./streamHelper");
 
 const transformStreams = () => {

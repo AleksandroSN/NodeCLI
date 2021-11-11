@@ -1,4 +1,4 @@
-const { exit, stderr } = require("process");
+const { exitHandler } = require("../shared");
 const { validateConfig } = require("./validateConfig");
 
 const validateArgs = (args) => {
@@ -6,8 +6,7 @@ const validateArgs = (args) => {
     (arg) => arg === "-c" || arg === "--config"
   );
   if (configArgIdx === -1) {
-    stderr.write("No ConFig !!!");
-    exit(55); // replace
+    exitHandler("No ConFig !!!\n", 10);
   }
   const config = args[configArgIdx + 1];
   const formatedConfig = config.split("-");

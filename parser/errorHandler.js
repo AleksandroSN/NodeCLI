@@ -1,6 +1,6 @@
-const { exit, stderr } = require("process");
+const { exitHandler } = require("../shared");
 
-const errorHandler = (args) => {
+const errorHandlerArgs = (args) => {
   const countDupes = {};
   args.forEach((arg) => {
     if (countDupes[arg]) {
@@ -10,12 +10,11 @@ const errorHandler = (args) => {
 
   Object.values(countDupes).forEach((count) => {
     if (count > 1) {
-      stderr.write("arguments is duplicate");
-      exit(55); // replace
+      exitHandler("arguments is duplicate\n", 22);
     }
   });
 };
 
 module.exports = {
-  errorHandler,
+  errorHandlerArgs,
 };

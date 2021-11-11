@@ -1,7 +1,7 @@
-const { cli } = require("../parser");
+const { argsParser } = require("./argsParser");
 
 const getConfig = (shortConfig, fullConfig) => {
-  const config = cli();
+  const config = argsParser();
   const path = config[`${shortConfig}`]
     ? config[`${shortConfig}`]
     : config[`${fullConfig}`];

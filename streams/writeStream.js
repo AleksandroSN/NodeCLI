@@ -1,14 +1,14 @@
 const { createWriteStream } = require("fs");
-const { stdout, stderr, exit } = require("process");
-const { cliArgsFormatted, checkFileExt, getConfig } = require("../shared");
+const { stdout } = require("process");
+const { cliArgsFormatted, checkFileExt, exitHandler } = require("../shared");
+const { getConfig } = require("../parser");
 
 const writeStream = () => {
   const path = getConfig(cliArgsFormatted.o, cliArgsFormatted.output);
   if (path) {
     const ext = checkFileExt(path);
     if (ext !== "txt") {
-      stderr.write("wrong file ext or file is unaccesible");
-      exit(55);
+      exitHandler("wrong file ext or file is unaccesible\n", 55);
     }
     return createWriteStream(path, {
       flags: "a",

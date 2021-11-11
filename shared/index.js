@@ -11,7 +11,7 @@ const {
 } = require("./constants");
 const { checkCase } = require("./checkCase");
 const { checkFileExt } = require("./checkFileExt");
-const { getConfig } = require("./getConfig");
+const { exitHandler } = require("./exitHandler");
 
 module.exports = {
   cliArgs,
@@ -25,5 +25,5 @@ module.exports = {
   engAlphabetLength,
   checkCase,
   checkFileExt,
-  getConfig,
+  exitHandler,
 };

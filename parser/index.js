@@ -1,5 +1,5 @@
-const { cli } = require("./cli");
+const { getConfig } = require("./getConfig");
 
 module.exports = {
-  cli,
+  getConfig,
 };

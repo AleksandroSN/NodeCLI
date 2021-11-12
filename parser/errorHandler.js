@@ -3,9 +3,11 @@ const { CustomError } = require("../shared");
 const errorHandlerArgs = (args) => {
   const countDupes = {};
   args.forEach((arg) => {
-    if (countDupes[arg]) {
-      countDupes[arg] += 1;
-    } else countDupes[arg] = 1;
+    const lastMinus = arg.lastIndexOf("-");
+    const firstLetter = arg.slice(lastMinus + 1)[0];
+    if (countDupes[firstLetter]) {
+      countDupes[firstLetter] += 1;
+    } else countDupes[firstLetter] = 1;
   });
 
   Object.values(countDupes).forEach((count) => {

@@ -13,6 +13,7 @@ module.exports = {
     "comma-dangle": "off",
     "arrow-body-style": "off",
     "operator-linebreak": "off",
+    "no-underscore-dangle": "off",
     "prettier/prettier": "error",
     "no-console": "warn",
   },

@@ -1,2 +1,1 @@
-seCCret mEssAge !
-Оченьма секретное послание !
+This is secret. Message about "_" symbol!

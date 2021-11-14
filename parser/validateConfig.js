@@ -6,7 +6,7 @@ const validateConfig = (config) => {
     const number = el[1];
 
     // validate {XY-}n format
-    if (el.length > 2) {
+    if (el.length > 2 || el === "") {
       throw new CustomError("Wrong Config !!! Please use format {XY-}n\n", 15);
     }
 

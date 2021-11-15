@@ -1,5 +1,5 @@
 const {
-  cliArgs,
+  cliArgsNotFormatted,
   cliArgsFormatted,
   rot8Shift,
   ceaserShift,
@@ -15,7 +15,7 @@ const { exitHandler } = require("./exitHandler");
 const { CustomError, errorHandler } = require("./errorHandler");
 
 module.exports = {
-  cliArgs,
+  cliArgsNotFormatted,
   cliArgsFormatted,
   rot8Shift,
   ceaserShift,

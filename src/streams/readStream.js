@@ -4,7 +4,7 @@ const { getConfig } = require("../parser");
 const { ReadStream } = require("./customReadStream");
 
 const readStream = () => {
-  const path = getConfig(cliArgsFormatted.i, cliArgsFormatted.input);
+  const path = getConfig(cliArgsFormatted.i, cliArgsFormatted.input); // ???
   if (path) {
     const ext = checkFileExt(path);
     if (ext !== "txt") {

@@ -1,5 +1,5 @@
-const { Readable } = require("stream");
 const fs = require("fs");
+const { Readable } = require("stream");
 const { exitHandler } = require("../shared");
 
 class ReadStream extends Readable {
@@ -11,11 +11,8 @@ class ReadStream extends Readable {
 
   _construct(callback) {
     fs.open(this.filename, "r", (err, fd) => {
-      if (err) {
-        if (err.code === "ENOENT") {
-          exitHandler("No such file or directory\n", 66);
-        }
-        callback(err);
+      if (err && err.code === "ENOENT") {
+        exitHandler("No such file or directory\n", 66);
       } else {
         this.fd = fd;
         callback();
@@ -23,23 +20,15 @@ class ReadStream extends Readable {
     });
   }
 
-  _read(n) {
-    const buf = Buffer.alloc(n);
-    fs.read(this.fd, buf, 0, n, null, (err, bytesRead) => {
+  _read(size) {
+    const buf = Buffer.alloc(size);
+    fs.read(this.fd, buf, 0, size, null, (err, bytesRead) => {
       if (err) {
         this.destroy(err);
       } else {
         this.push(bytesRead > 0 ? buf.slice(0, bytesRead) : null);
       }
     });
-  }
-
-  _destroy(err, callback) {
-    if (this.fd) {
-      fs.close(this.fd, (er) => callback(er || err));
-    } else {
-      callback(err);
-    }
   }
 }
 

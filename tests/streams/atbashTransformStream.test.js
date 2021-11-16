@@ -1,6 +1,10 @@
-const { atbashTransformStream } = require("../../src/streams/atbashTransformStream");
+const { Transform } = require("stream");
+const {
+  atbashTransformStream,
+} = require("../../src/streams/atbashTransformStream");
 
-test("dummy", () => {
-  const sum = (a, b) => a + b;
-  expect(sum(2, 3)).toBe(5);
+test("test transform stream with atbash cipher", () => {
+  const streamAtbash = atbashTransformStream();
+  const bool = streamAtbash instanceof Transform;
+  expect(bool).toBeTruthy();
 });

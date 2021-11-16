@@ -7,13 +7,16 @@ const validateConfig = (config) => {
 
     // validate {XY-}n format
     if (el.length > 2 || el === "") {
-      throw new CustomError("Wrong Config !!! Please use format {XY-}n\n", 15);
+      throw new CustomError(
+        "ERROR: Wrong Config !!! Please use format {XY-}n\n",
+        15
+      );
     }
 
     // validate upperCase
     if (letter !== letter.toUpperCase()) {
       throw new CustomError(
-        "Only UpperCase !!! Please use format {XY-}n\n",
+        "ERROR: Only UpperCase !!! Please use format {XY-}n\n",
         44
       );
     }
@@ -21,7 +24,7 @@ const validateConfig = (config) => {
     // validate ciphers
     if (letter !== "C" && letter !== "A" && letter !== "R") {
       throw new CustomError(
-        "Valid arguments 'A' 'R' 'C'  !!! Please use format {XY-}n\n",
+        "ERROR: Valid arguments 'A' 'R' 'C'  !!! Please use format {XY-}n\n",
         5
       );
     }
@@ -30,13 +33,13 @@ const validateConfig = (config) => {
     if (letter === "C" || letter === "R") {
       if (typeof number === "undefined") {
         throw new CustomError(
-          "For Ceaser and Rot8 ciphers second argument is need\n",
+          "ERROR: For Ceaser and Rot8 ciphers second argument is need\n",
           71
         );
       }
       if (number !== "0" && number !== "1") {
         throw new CustomError(
-          "For Ceaser and Rot8 ciphers second argument must be 0 or 1\n",
+          "ERROR: For Ceaser and Rot8 ciphers second argument must be 0 or 1\n",
           83
         );
       }
@@ -45,7 +48,7 @@ const validateConfig = (config) => {
     // validate number for Atbash cipher
     if (letter === "A" && typeof number !== "undefined") {
       throw new CustomError(
-        "For Atbash cipher second argument is no need\n",
+        "ERROR: For Atbash cipher second argument is no need\n",
         90
       );
     }

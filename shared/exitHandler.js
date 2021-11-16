@@ -1,9 +1,8 @@
-const { stderr, exit } = require("process");
+const { stderr } = require("process");
 
 const exitHandler = (message, exitCode) => {
   stderr.write(`${message}`);
-  process.exitCode = exitCode;
-  exit();
+  process.exit(exitCode);
 };
 
 module.exports = {

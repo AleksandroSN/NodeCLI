@@ -8,7 +8,10 @@ const writeStream = () => {
   if (path) {
     const ext = checkFileExt(path);
     if (ext !== "txt") {
-      throw new CustomError("wrong file ext or file is unaccesible\n", 55);
+      throw new CustomError(
+        "ERROR: wrong file ext or file is unaccesible\n",
+        55
+      );
     }
     return createWriteStream(path, {
       flags: "a",

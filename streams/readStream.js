@@ -8,7 +8,10 @@ const readStream = () => {
   if (path) {
     const ext = checkFileExt(path);
     if (ext !== "txt") {
-      throw new CustomError("wrong file ext or file is unaccesible\n", 10);
+      throw new CustomError(
+        "ERROR: wrong file ext or file is unaccesible\n",
+        10
+      );
     }
     return new ReadStream(path);
   }

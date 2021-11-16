@@ -7,13 +7,12 @@ class CustomError extends Error {
     this.code = code;
   }
 }
-
 const errorHandler = (err) => {
   const { name, message, code } = err;
 
   if (name === "Custom Errors") {
     stderr.write(`${message}`);
-    process.exitCode = code;
+    process.exit(code);
   } else throw err;
 };
 

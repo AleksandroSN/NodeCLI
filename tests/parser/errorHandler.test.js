@@ -1,4 +1,4 @@
-const { errorHandlerArgs } = require("../../parser/errorHandler");
+const { errorHandlerArgs } = require("../../src/parser/errorHandler");
 
 const mockConfig = [
   "-c",

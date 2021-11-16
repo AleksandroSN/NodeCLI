@@ -1,6 +1,6 @@
 const { pipeline } = require("stream");
-const { readStream, writeStream, transformStreams } = require("./streams");
-const { errorHandler } = require("./shared");
+const { readStream, writeStream, transformStreams } = require("./src/streams");
+const { errorHandler } = require("./src/shared");
 
 const init = () => {
   try {
@@ -11,3 +11,5 @@ const init = () => {
 };
 
 init();
+
+module.exports = { init };

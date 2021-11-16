@@ -1,4 +1,4 @@
-const { validateConfig } = require("../../parser/validateConfig");
+const { validateConfig } = require("../../src/parser/validateConfig");
 
 describe("tests validation for config", () => {
   it("validate {XY-}n format", () => {

@@ -15,7 +15,7 @@ const readStream = () => {
     }
     return new ReadStream(path);
   }
-
+  stdin.write("Write text for ciphering. For exit press CTRL+C\n");
   return stdin;
 };
 

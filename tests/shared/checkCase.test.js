@@ -1,4 +1,4 @@
-const { checkCase } = require("../../shared");
+const { checkCase } = require("../../src/shared");
 
 test("str is lowerCase", () => {
   expect(checkCase("lowercase")).toBeFalsy();

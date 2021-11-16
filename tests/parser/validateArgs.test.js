@@ -1,4 +1,4 @@
-const { validateArgs } = require("../../parser/validateArgs");
+const { validateArgs } = require("../../src/parser/validateArgs");
 
 const mockArgs = ["-i", "./input.txt", "--output", "./output.txt"];
 

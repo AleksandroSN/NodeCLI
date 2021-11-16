@@ -1,4 +1,4 @@
-const { Ciphers } = require("../../ciphers");
+const { Ciphers } = require("../../src/ciphers");
 
 test("encrypt str with ceaser cipher", () => {
   const ceaserCipher = new Ciphers("randOm text");

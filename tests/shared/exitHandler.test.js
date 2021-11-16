@@ -1,5 +1,5 @@
 const { stderr } = require("process");
-const { exitHandler } = require("../../shared");
+const { exitHandler } = require("../../src/shared");
 
 describe("tests for handler of exit", () => {
   const mockFunc = () => {

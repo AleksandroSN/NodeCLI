@@ -1,4 +1,4 @@
-const { checkFileExt } = require("../../shared");
+const { checkFileExt } = require("../../src/shared");
 
 test("file extenstion is correct", () => {
   expect(checkFileExt("./input.txt")).toBe("txt");

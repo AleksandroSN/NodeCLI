@@ -1,5 +1,5 @@
 const { stderr } = require("process");
-const { errorHandler, CustomError } = require("../../shared");
+const { errorHandler, CustomError } = require("../../src/shared");
 
 describe("test for custom errors", () => {
   const error = new Error("usual");

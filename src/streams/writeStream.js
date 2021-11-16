@@ -20,7 +20,6 @@ const writeStream = () => {
       stdout.write("Finish ! Check your output file \n");
     });
   }
-
   return stdout;
 };
 

@@ -1,4 +1,4 @@
-const { CustomError, cliArgsNotFormatted } = require("../shared");
+const { CustomError, cliArgs } = require("../shared");
 
 const errorHandlerArgs = (args) => {
   const dupesSet = new Set(args);
@@ -7,12 +7,9 @@ const errorHandlerArgs = (args) => {
   }
 
   if (
-    (dupesSet.has(cliArgsNotFormatted["-c"]) &&
-      dupesSet.has(cliArgsNotFormatted["--config"])) ||
-    (dupesSet.has(cliArgsNotFormatted["-i"]) &&
-      dupesSet.has(cliArgsNotFormatted["--input"])) ||
-    (dupesSet.has(cliArgsNotFormatted["-o"]) &&
-      dupesSet.has(cliArgsNotFormatted["--output"]))
+    (dupesSet.has(cliArgs.c) && dupesSet.has(cliArgs.config)) ||
+    (dupesSet.has(cliArgs.i) && dupesSet.has(cliArgs.input)) ||
+    (dupesSet.has(cliArgs.o) && dupesSet.has(cliArgs.output))
   ) {
     throw new CustomError("ERROR: arguments is duplicate\n", 22);
   }

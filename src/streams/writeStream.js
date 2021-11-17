@@ -1,19 +1,17 @@
 const { createWriteStream } = require("fs");
 const { stdout } = require("process");
-const { cliArgsFormatted, checkFileExt, CustomError } = require("../shared");
-const { getConfig } = require("../parser");
+const { checkFileExt, CustomError } = require("../shared");
 
-const writeStream = () => {
-  const path = getConfig(cliArgsFormatted.o, cliArgsFormatted.output);
-  if (path) {
-    const ext = checkFileExt(path);
+const writeStream = (outputConfig) => {
+  if (outputConfig) {
+    const ext = checkFileExt(outputConfig);
     if (ext !== "txt") {
       throw new CustomError(
         "ERROR: wrong file ext or file is unaccesible\n",
         55
       );
     }
-    return createWriteStream(path, {
+    return createWriteStream(outputConfig, {
       flags: "a",
       encoding: "utf-8",
     }).on("finish", () => {

@@ -5,21 +5,21 @@ const charCodeUpperCaseEnd = 90;
 const engAlphabetLength = 26;
 const ceaserShift = 1;
 const rot8Shift = 8;
-const cliArgsNotFormatted = {
-  "-c": "-c",
-  "--config": "--config",
-  "-i": "-i",
-  "--input": "--input",
-  "-o": "-o",
-  "--output": "--output",
+const fullArgs = {
+  "-c": "config",
+  "--config": "config",
+  "-i": "input",
+  "--input": "input",
+  "-o": "output",
+  "--output": "output",
 };
-const cliArgsFormatted = {
-  c: "c",
-  config: "config",
-  i: "i",
-  input: "input",
-  o: "o",
-  output: "output",
+const cliArgs = {
+  c: "-c",
+  config: "--config",
+  i: "-i",
+  input: "--input",
+  o: "-o",
+  output: "--output",
 };
 
 module.exports = {
@@ -30,6 +30,6 @@ module.exports = {
   engAlphabetLength,
   ceaserShift,
   rot8Shift,
-  cliArgsNotFormatted,
-  cliArgsFormatted,
+  fullArgs,
+  cliArgs,
 };

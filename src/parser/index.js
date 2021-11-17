@@ -1,5 +1,5 @@
-const { getConfig } = require("./getConfig");
+const { argsParser } = require("./argsParser");
 
 module.exports = {
-  getConfig,
+  argsParser,
 };

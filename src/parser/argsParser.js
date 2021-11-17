@@ -1,11 +1,11 @@
 const { argv } = require("process");
+const { fullArgs } = require("../shared");
 const { errorHandlerArgs } = require("./errorHandler");
 const { validateArgs } = require("./validateArgs");
 
-const shortArg = (arg, args) => {
-  if (arg.startsWith("-")) {
-    const replaceArg = arg[1] === "-" ? "--" : "-";
-    const key = arg.replace(replaceArg, "");
+const formatArg = (arg, args) => {
+  if (fullArgs[arg]) {
+    const key = arg.replace(arg, fullArgs[arg]);
     const idx = args.findIndex((x) => x === arg);
     const nextValue = args[idx + 1];
     return { [key]: nextValue };
@@ -20,7 +20,7 @@ const argsParser = () => {
   const formatArgs = args.reduce(
     (accArgs, arg) => ({
       ...accArgs,
-      ...shortArg(arg, argv),
+      ...formatArg(arg, argv),
     }),
     {}
   );

@@ -1,14 +1,9 @@
-const { streamLibs } = require("./streamHelper");
+const { Transform } = require("stream");
 
-const transformStreams = (transformConfig) => {
-  const formatedConfig = transformConfig.split("-");
-  const streams = formatedConfig.map((cipher) => {
-    const [cipherArgName, encode] = cipher.split("");
-    return streamLibs[cipherArgName](cipherArgName, encode);
-  });
-  return streams;
+const transformStream = (options) => {
+  return new Transform(options);
 };
 
 module.exports = {
-  transformStreams,
+  transformStream,
 };

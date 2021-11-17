@@ -14,8 +14,6 @@ const writeStream = (outputConfig) => {
     return createWriteStream(outputConfig, {
       flags: "a",
       encoding: "utf-8",
-    }).on("finish", () => {
-      stdout.write("Finish ! Check your output file \n");
     });
   }
   return stdout;

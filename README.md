@@ -32,3 +32,16 @@ node cli -c "C1-C1-R0-A" -i "./input.txt" -o "./output.txt"
 
 > output.txt
 > `Myxn xn nbdobm. Tbnnfzb ferlm "_" nhteru!`
+
+## Tests:
+For tests use next commands:
+
+1. View test coverage percentage 
+```bash
+npm run coverage
+```
+
+2. Test individual file
+```bash
+npm run test cli.test.js
+```

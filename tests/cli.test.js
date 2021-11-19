@@ -34,36 +34,45 @@ describe("scenarios with errors", () => {
 });
 
 describe("success scenarios", () => {
-  it("1. all correct", async () => {
-    await exec(
+  it("1. all correct", () => {
+    exec(
       "node cli --config 'A-A-R1-C1-R0-C0' -i './input.txt' -o './output.txt'"
     );
-    const readStream = fs.createReadStream("./output.txt", {
-      encoding: "utf8",
-    });
-    readStream.on("data", (chunk) => {
-      expect(chunk).toMatch(/secret/i);
-    });
+    setTimeout(() => {
+      const readStream = fs.createReadStream("./output.txt", {
+        encoding: "utf8",
+      });
+      readStream.on("data", (chunk) => {
+        expect(chunk).toMatch(/secret/i);
+      });
+      readStream.close();
+    }, 0);
   });
 
-  it("2. some tests", async () => {
-    await exec("node cli -c 'C1-C1-R0-A' -i './input.txt' -o './output.txt'");
-    const readStream = fs.createReadStream("./output.txt", {
-      encoding: "utf8",
-    });
-    readStream.on("data", (chunk) => {
-      expect(chunk).toMatch(/Tbnnfzb/i);
-    });
+  it("2. some tests", () => {
+    exec("node cli -c 'C1-C1-R0-A' -i './input.txt' -o './output.txt'");
+    setTimeout(() => {
+      const readStream = fs.createReadStream("./output.txt", {
+        encoding: "utf8",
+      });
+      readStream.on("data", (chunk) => {
+        expect(chunk).toMatch(/Tbnnfzb/i);
+      });
+      readStream.close();
+    }, 0);
   });
-  it("3. another test", async () => {
-    await exec(
+  it("3. another test", () => {
+    exec(
       "node cli -c 'A-A-A-R1-R0-R0-R0-C1-C1-A' -i './input.txt' -o './output.txt'"
     );
-    const readStream = fs.createReadStream("./output.txt", {
-      encoding: "utf8",
-    });
-    readStream.on("data", (chunk) => {
-      expect(chunk).toMatch(/Asggous/i);
-    });
+    setTimeout(() => {
+      const readStream = fs.createReadStream("./output.txt", {
+        encoding: "utf8",
+      });
+      readStream.on("data", (chunk) => {
+        expect(chunk).toMatch(/Asggous/i);
+      });
+      readStream.close();
+    }, 0);
   });
 });

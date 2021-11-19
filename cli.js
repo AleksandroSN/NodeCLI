@@ -15,7 +15,6 @@ const init = () => {
   } catch (e) {
     errorHandler(e);
   }
-  console.log("\x1b[32m", "Finish ! Check your output file");
 };
 
 init();

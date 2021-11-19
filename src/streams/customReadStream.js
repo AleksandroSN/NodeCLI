@@ -21,12 +21,12 @@ class ReadStream extends Readable {
   }
 
   _read(size) {
-    const buf = Buffer.alloc(size);
-    fs.read(this.fd, buf, 0, size, null, (err, bytesRead) => {
+    this.buf = Buffer.alloc(size);
+    fs.read(this.fd, this.buf, 0, size, null, (err, bytesRead) => {
       if (err) {
-        this.destroy(err);
+        this.destroy();
       } else {
-        this.push(bytesRead > 0 ? buf.slice(0, bytesRead) : null);
+        this.push(bytesRead > 0 ? this.buf.slice(0, bytesRead) : null);
       }
     });
   }

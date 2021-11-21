@@ -1,5 +1,5 @@
-# RSSchool NodeJS. Task 1: NodeJS CLI
-### Description task : https://github.com/rolling-scopes-school/basic-nodejs-course/blob/master/descriptions/ciphering-cli-tool.md
+# RSSchool NodeJS. Task 2: NodeJS Test
+### Description task : https://github.com/rolling-scopes-school/basic-nodejs-course/blob/master/descriptions/testing.md
 ## To work with the command line you must :
 1. Have NodeJS version 15+
 2. git clone
